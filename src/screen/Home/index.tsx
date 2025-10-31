@@ -1,4 +1,4 @@
-import React from "react";
+
 import Hyperspeed from "@/components/Hyperspeed";
 import SplitText from "@/components/SplitText";
 import BlurText from "@/components/BlurText";

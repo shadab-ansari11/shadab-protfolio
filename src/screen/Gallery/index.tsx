@@ -1,4 +1,4 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import SplitText from "@/components/SplitText";
 import FootballImage from "@/assets/football.jpeg";

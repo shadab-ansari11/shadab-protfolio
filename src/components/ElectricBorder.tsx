@@ -1,4 +1,4 @@
-import React, { CSSProperties, PropsWithChildren, useEffect, useId, useLayoutEffect, useRef } from 'react';
+import React, { type CSSProperties, type PropsWithChildren, useEffect, useId, useLayoutEffect, useRef } from 'react';
 
 type ElectricBorderProps = PropsWithChildren<{
   color?: string;
@@ -80,11 +80,14 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     }
 
     requestAnimationFrame(() => {
-      [...dyAnims, ...dxAnims].forEach((a: any) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      [...dyAnims, ...dxAnims].forEach((a:any) => {
         if (typeof a.beginElement === 'function') {
           try {
             a.beginElement();
-          } catch {}
+          } catch {
+            console.warn('Failed to restart SVG animation');
+          }
         }
       });
     });

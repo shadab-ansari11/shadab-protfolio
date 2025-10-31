@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import SplitText from "@/components/SplitText";
 
 function Contact() {
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = async (event: any) => {
     event.preventDefault();
     setLoading(true);

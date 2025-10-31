@@ -1,4 +1,4 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import MyPhoto from "@/assets/shadab-photo - Copy.jpg";
 import SplitText from "@/components/SplitText";

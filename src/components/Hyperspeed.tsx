@@ -1,8 +1,9 @@
-import { useEffect, useRef, FC } from 'react';
+import { useEffect, useRef, type FC } from 'react';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
 
 interface Distortion {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   uniforms: Record<string, { value: any }>;
   getDistortion: string;
   getJS?: (progress: number, time: number) => THREE.Vector3;
@@ -456,6 +457,7 @@ class CarLights {
     const curve = new THREE.LineCurve3(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, -1));
     const geometry = new THREE.TubeGeometry(curve, 40, 1, 8, false);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const instanced = new THREE.InstancedBufferGeometry().copy(geometry as any) as THREE.InstancedBufferGeometry;
     instanced.instanceCount = options.lightPairsPerRoadWay * 2;
 
@@ -614,6 +616,7 @@ class LightsSticks {
   init() {
     const options = this.options;
     const geometry = new THREE.PlaneGeometry(1, 1);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const instanced = new THREE.InstancedBufferGeometry().copy(geometry as any) as THREE.InstancedBufferGeometry;
     const totalSticks = options.totalSideLightSticks;
     instanced.instanceCount = totalSticks;
@@ -752,12 +755,13 @@ class Road {
     const options = this.options;
     const segments = 100;
     const geometry = new THREE.PlaneGeometry(
-      isRoad ? options.roadWidth : options.islandWidth,
+      width,
       options.length,
       20,
       segments
     );
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let uniforms: Record<string, { value: any }> = {
       uTravelLength: { value: options.length },
       uColor: {
@@ -808,7 +812,7 @@ class Road {
     const mesh = new THREE.Mesh(geometry, material);
     mesh.rotation.x = -Math.PI / 2;
     mesh.position.z = -options.length / 2;
-    mesh.position.x += (this.options.islandWidth / 2 + options.roadWidth / 2) * side;
+    mesh.position.x += (this.options.islandWidth / 2 + width / 2) * side;
 
     this.webgl.scene.add(mesh);
     return mesh;
@@ -923,12 +927,14 @@ class App {
   renderPass!: RenderPass;
   bloomPass!: EffectPass;
   clock: THREE.Clock;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   assets: Record<string, any>;
   disposed: boolean;
   road: Road;
   leftCarLights: CarLights;
   rightCarLights: CarLights;
   leftSticks: LightsSticks;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fogUniforms: Record<string, { value: any }>;
   fovTarget: number;
   speedUpTarget: number;
