@@ -57,8 +57,10 @@ function Home() {
           }}
         />
       </div>
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 z-[5]" />
+
       {/* Foreground Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-16 pb-10 mt-[0px] sm:mt-[60px] md:mt-[40px] lg:mt-[60px]">
         {/* Heading */}
@@ -83,7 +85,7 @@ function Home() {
             delay={160}
             animateBy="words"
             direction="top"
-            className="text-center sm:text-left font-medium leading-snug max-w-[90vw] sm:max-w-3xl sm: flex justify-center items-center"
+            className="text-center sm:text-left font-medium leading-snug max-w-[90vw] sm:max-w-3xl flex justify-center items-center"
           />
           <FaReact className="text-sky-400 text-2xl sm:text-3xl animate-spin-slow flex-shrink-0" />
         </div>
@@ -104,7 +106,6 @@ function Home() {
           />
 
           <div className="flex flex-wrap justify-center gap-6 sm:gap-8 text-2xl sm:text-3xl text-gray-300">
-            {/* GitHub */}
             <a
               href="https://github.com/shadab-ansari11"
               target="_blank"
@@ -114,7 +115,6 @@ function Home() {
               <FaGithub />
             </a>
 
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/shadab-ansari-361a23216"
               target="_blank"
@@ -124,7 +124,6 @@ function Home() {
               <FaLinkedin />
             </a>
 
-            {/* Instagram */}
             <a
               href="https://www.instagram.com/shadab____11"
               target="_blank"
@@ -134,7 +133,6 @@ function Home() {
               <FaInstagram />
             </a>
 
-            {/* WhatsApp */}
             <a
               href="https://wa.me/919325775992?text=Hello%20I%20am%20React%20JS%20and%20React%20Native%20Developer"
               target="_blank"
@@ -144,14 +142,16 @@ function Home() {
               <FaWhatsapp />
             </a>
           </div>
-          <div className="relative mt-10">
-            <button
-              className="group relative inline-flex items-center justify-center px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600
-      text-white font-semibold 
-      overflow-hidden shadow-lg 
-      transition-all duration-500 
-      hover:scale-105 hover:shadow-cyan-400/50
-    "
+
+          {/* CV Buttons */}
+          <div className="relative mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            {/* Download CV */}
+            <a
+              href="/assets/Shadab-Ansari-CV-2025-26.pdf"
+              download
+              className="group relative inline-flex items-center justify-center px-8 py-3 rounded-full 
+                bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white font-semibold 
+                overflow-hidden shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-cyan-400/50"
             >
               <SplitText
                 text="Download My CV"
@@ -165,11 +165,34 @@ function Home() {
                 threshold={0.1}
                 rootMargin="-100px"
               />
-
-              {/* subtle glowing border animation */}
               <span className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-cyan-400 animate-pulse" />
               <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full" />
-            </button>
+            </a>
+
+            {/* View CV */}
+            {/* <a
+              href="/assets/Shadab-Ansari-CV-2025-26.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center justify-center px-8 py-3 rounded-full 
+                bg-gradient-to-r from-purple-600 via-blue-500 to-cyan-500 text-white font-semibold 
+                overflow-hidden shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-purple-400/50"
+            >
+              <SplitText
+                text="View My CV"
+                className="text-lg sm:text-xl md:text-2xl font-bold tracking-wide group-hover:text-white"
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+              />
+              <span className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-purple-400 animate-pulse" />
+              <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full" />
+            </a> */}
           </div>
         </div>
       </div>
